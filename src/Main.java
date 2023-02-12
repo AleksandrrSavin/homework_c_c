@@ -5,13 +5,11 @@ public class Main {
 
         int amount = 1_000_000;
         int months = 24;
-        double percent = 9.99;
+        double monthlyInterestRate = (9.99 / 12 / 100);
 
-        double i = percent / 12 / 100;
-        double k = (i * (Math.pow ((1 + i),months))) / ((Math.pow ((1 + i),months) - 1));
-
-        double payment = service.calculate(k, amount);
-        System.out.println(payment);
+        double annuityRatio = service.calculate(months, monthlyInterestRate);
+        int payment = (int) (annuityRatio * amount);
+        System.out.println(payment + " рублей в месяц");
 
 
     }
